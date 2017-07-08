@@ -1,0 +1,20 @@
+class Solution(object):
+    def groupAnagrams(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """
+        sorted_list = []
+        output = []
+        
+        for word in range(len(strs)):
+            sorted_word = ''.join(sorted(strs[word]))
+            
+            if sorted_word in sorted_list:
+                output[sorted_list.index(sorted_word)] += [strs[word]]
+                
+            else:
+                output += [[strs[word]]]
+                sorted_list += [sorted_word]
+        
+        return output
