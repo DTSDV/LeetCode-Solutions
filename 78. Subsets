@@ -1,0 +1,7 @@
+def subsets(nums):
+    output = [[]]
+    
+    for i in sorted(nums):
+        output += [x + [i] for x in output]
+        
+    return output
